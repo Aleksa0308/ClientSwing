@@ -1,13 +1,12 @@
-package restClient;
+package restClient.dto;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
-import restClient.dto.TokenRequestDto;
-import restClient.dto.TokenResponseDto;
 
 import java.io.IOException;
 
 public class UserServiceRestClient {
+
     public static final String URL = "http://localhost:8080/api";
 
     public static final MediaType JSON

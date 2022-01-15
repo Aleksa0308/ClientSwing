@@ -1,13 +1,14 @@
 package view;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import restClient.UserServiceRestClient;
+
+import restClient.dto.UserServiceRestClient;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class LoginView extends JPanel {
+public class LogInView extends JPanel {
     private JPanel inputPanel;
     private JLabel usernameLabel;
     private JLabel passwordLabel;
@@ -23,7 +24,7 @@ public class LoginView extends JPanel {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    public LoginView(){
+    public LogInView(){
         super();
         this.setSize(1000,400);
         this.setLayout(new FlowLayout());
@@ -49,15 +50,16 @@ public class LoginView extends JPanel {
                 String token = userServiceRestClient
                         .login(usernameInput.getText(), String.valueOf(passwordInput.getPassword()));
                 this.setVisible(false);
-                ClientApplication.getInstance().setToken(token);
-                System.out.println(token);
-                ClientApplication.getInstance().getMoviesView().init();
+                //ClientApplication.getInstance().getMoviesView().init();
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+
     }
+
+
 
     private void initInputPanel(){
         inputPanel = new JPanel();
