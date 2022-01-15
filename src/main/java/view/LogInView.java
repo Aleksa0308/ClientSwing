@@ -50,7 +50,7 @@ public class LogInView extends JPanel {
                 String token = userServiceRestClient
                         .login(usernameInput.getText(), String.valueOf(passwordInput.getPassword()));
                 this.setVisible(false);
-                //ClientApplication.getInstance().getMoviesView().init();
+                ClientApplication.getInstance().getMainView().init();
 
             } catch (IOException e) {
                 e.printStackTrace();

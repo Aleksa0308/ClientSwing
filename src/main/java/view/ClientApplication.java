@@ -7,6 +7,7 @@ public class ClientApplication extends JFrame {
 
 	private String token;
 	private LogInView loginView;
+	private MainView mainView;
 
 
 	private ClientApplication() throws IllegalAccessException, NoSuchMethodException {
@@ -16,7 +17,8 @@ public class ClientApplication extends JFrame {
 
 		loginView = new LogInView();
 		this.add(loginView, BorderLayout.NORTH);
-
+		mainView = new MainView();
+		this.add(mainView, BorderLayout.CENTER);
 
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,6 +54,13 @@ public class ClientApplication extends JFrame {
 		this.loginView = loginView;
 	}
 
+	public MainView getMainView() {
+		return mainView;
+	}
+
+	public void setMainView(MainView mainView) {
+		this.mainView = mainView;
+	}
 
 	public static ClientApplication getInstance() {
 		return InstanceHolder.instance;
